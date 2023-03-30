@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:varla/View/Home/HomePage.dart';
+import 'package:varla/View/Notification/NotificationPage.dart';
 import 'package:varla/View/Tasks/TasksPage.dart';
 
 class BottomNavigationBarHelper extends StatefulWidget {
@@ -14,11 +14,11 @@ class BottomNavigationBarHelper extends StatefulWidget {
 
 class _BottomNavigationBarHelperState extends State<BottomNavigationBarHelper> {
   int _selectedIndex = 1;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static const List<Widget> _widgetOptions = <Widget>[
     TasksPage(),
     HomePage(),
+    NotificationPage()
   ];
 
   void _onItemTapped(int index) {
@@ -39,10 +39,10 @@ class _BottomNavigationBarHelperState extends State<BottomNavigationBarHelper> {
           icon: Icon(Icons.home),
           label: 'Home',
         ),
-        // BottomNavigationBarItem(
-        //   icon: Icon(Icons.lightbulb),
-        //   label: 'School',
-        // ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.edit_notifications),
+          label: 'Notification',
+        ),
       ],
       currentIndex: _selectedIndex,
       onTap: _onItemTapped,

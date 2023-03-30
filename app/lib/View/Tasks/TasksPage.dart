@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 class TasksPage extends StatefulWidget {
   const TasksPage({super.key});
 
+  static const String routeName = '/tasks';
+
   @override
   State<TasksPage> createState() => _TasksPageState();
 }
