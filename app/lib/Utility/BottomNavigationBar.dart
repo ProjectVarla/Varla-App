@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:varla/View/Home/HomePage.dart';
 import 'package:varla/View/Notification/NotificationPage.dart';
+import 'package:varla/View/Orchestrator/OrchestratorPage.dart';
 import 'package:varla/View/Tasks/TasksPage.dart';
 
 class BottomNavigationBarHelper extends StatefulWidget {
@@ -16,7 +17,7 @@ class _BottomNavigationBarHelperState extends State<BottomNavigationBarHelper> {
   int _selectedIndex = 1;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    TasksPage(),
+    OrchestratorPage(),
     HomePage(),
     NotificationPage()
   ];
@@ -32,8 +33,8 @@ class _BottomNavigationBarHelperState extends State<BottomNavigationBarHelper> {
     BottomNavigationBar nav = BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.auto_awesome_sharp),
-          label: 'Tasks',
+          icon: Icon(Icons.precision_manufacturing_sharp),
+          label: 'Services',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
