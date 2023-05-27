@@ -100,8 +100,8 @@ class NotificationDetailsParams {
 
 Future<void> NormalNotification() async {}
 
-Future<void> showNotificationWithActions(message,
-    {List<NotificationAction>? actions}) async {
+Future<void> showNotificationWithActions(dynamic message,
+    {List<NotificationAction>? actions, String? connectionID}) async {
   await flutterLocalNotificationsPlugin.show(
     id++,
     'Varla',

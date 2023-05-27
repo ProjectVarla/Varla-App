@@ -14,6 +14,8 @@ class TasksPage extends StatefulWidget {
 class _TasksPageState extends State<TasksPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: const Text("TasksPage")));
+    return Scaffold(
+      body: Center(child: Text("hi")),
+    );
   }
 }

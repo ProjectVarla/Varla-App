@@ -11,6 +11,7 @@ import 'package:varla/Services/Notification/NotificationChannels.dart';
 import 'package:varla/Services/Notification/temp.dart';
 import 'package:varla/Utility/BottomNavigationBar.dart';
 import 'package:varla/Utility/Env/env.dart';
+import 'package:varla/Utility/Navigation/Navigation.dart';
 import 'package:varla/Utility/NotificationHelp.dart';
 import 'package:varla/View/Home/HomePage.dart';
 import 'package:varla/View/Tasks/TasksPage.dart';
@@ -133,15 +134,15 @@ void main() async {
     onDidReceiveBackgroundNotificationResponse: onStart,
   );
 
-  await initializeService();
+  // await initializeService();
 
-  NotificationChannels.add(NotificationChannelStream(
-      serverUrl: Env.NOTIFICATION_CORE_URL, channelName: "communication"));
+  // NotificationChannels.add(NotificationChannelStream(
+  //     serverUrl: Env.NOTIFICATION_CORE_URL, channelName: "communication"));
 
-  NotificationChannels.add(NotificationChannelStream(
-      serverUrl: Env.NOTIFICATION_CORE_URL, channelName: "FileManager"));
+  // NotificationChannels.add(NotificationChannelStream(
+  //     serverUrl: Env.NOTIFICATION_CORE_URL, channelName: "FileManager"));
 
-  initNotification();
+  //initNotification();
 
   runApp(const MyApp());
 }
@@ -152,10 +153,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData normalTheme = ThemeData().copyWith(
-        brightness: Brightness.dark,
+        // brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.purple,
-        ));
+      primarySwatch: Colors.purple,
+    ));
 
     final ThemeData darkTheme = ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSwatch(
@@ -166,7 +167,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: normalTheme,
       darkTheme: darkTheme,
-      home: const BottomNavigationBarHelper(),
+      home: NavigationHelper(), // const BottomNavigationBarHelper(),
     );
   }
 }
@@ -194,7 +195,7 @@ Future<void> initializeService() async {
 void onStart(dynamic zeft) async {
   if (zeft is NotificationResponse) {
     print("ya zeft");
-    print(NotificationChannels.channels);
+    // print(NotificationChannels.channels);
     print('notification(${zeft.id}) action tapped: '
         '${zeft.actionId} with'
         ' payload: ${zeft.payload}');
@@ -206,8 +207,8 @@ void onStart(dynamic zeft) async {
     return;
   }
   DartPluginRegistrant.ensureInitialized();
-  NotificationChannels.add(NotificationChannelStream(
-      serverUrl: Env.NOTIFICATION_CORE_URL, channelName: "FileManager"));
+  // NotificationChannels.add(NotificationChannelStream(
+  //     serverUrl: Env.NOTIFICATION_CORE_URL, channelName: "FileManager"));
 
   initNotification();
 
